@@ -1,0 +1,31 @@
+The task is as follows:
+
+As a next step in your assessment we want to conduct a technical assessment to test your fit for our team. 
+
+Your task is: Generate your own simple Gen AI application using RAG technique:
+
+Develop a microservice containing backend (FastAPI preferred)
+Develop a microservice containing front end.
+ 
+
+Backend
+
+Use an open source text dataset for RAG (examples https://huggingface.co/datasets): choose an dataset from here
+Use a pretrained LLM model (examples https://huggingface.co/models ): choose any model from here
+Generate API documentation (swagger like)
+Define a couple of tests that would be executed by a CI/CD pipeline (example https://github.com/features/actions)
+ 
+
+Frontend
+
+It must contain a prompt so the user could include questions (example https://streamlit.io/gallery?category=llms)
+ 
+
+Deployment:
+
+During the presentation of the use case, it will be required to present the solution already deployed at a cloud platform of your choice.
+Please provide access to the repository for both microservices.
+Note:
+
+ Please take your own assumptions in case there is something that has not been defined above. 
+In case you don't have access to any cloud provider, feel free to deploy locally using docker compose. 
