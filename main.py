@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from datetime import datetime
 from datasets import load_dataset
 from transformers import BartForConditionalGeneration, BartTokenizer
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -25,7 +26,10 @@ tfidf_matrix = vectorizer.fit_transform(texts)
 model = BartForConditionalGeneration.from_pretrained("facebook/bart-large-cnn")
 tokenizer = BartTokenizer.from_pretrained("facebook/bart-large-cnn")
 
-
+@app.get("/")
+async def get_current_datetime():
+    current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return {"current_datetime": current_datetime}
 
 @app.post("/generate")
 async def generate_answer(query: Query):
