@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from datetime import datetime
 from datasets import load_dataset
@@ -42,6 +42,9 @@ async def generate_answer(query: Query):
     Returns:
     dict: A dictionary containing the generated answer and the relevant document context.
     """
+    if not query.question.strip():
+        raise HTTPException(status_code=422, detail="Empty question. Please provide a valid question.")
+
     # Retrieve relevant documents
     query_vector = vectorizer.transform([query.question])
     similarities = cosine_similarity(query_vector, tfidf_matrix).flatten()
