@@ -14,7 +14,7 @@ class Query(BaseModel):
     """
     question: str
 
-# Load dataset
+# Load the dataset
 dataset = load_dataset("roneneldan/TinyStories", split="train[:1000]")
 texts = dataset["text"]
 
