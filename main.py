@@ -51,7 +51,7 @@ async def generate_answer(query: Query):
     relevant_doc_index = similarities.argsort()[-1]
     relevant_doc = texts[relevant_doc_index]
 
-    # Generate answer
+    # Generate the answer
     input_text = f"Context: {relevant_doc}\n\nQuestion: {query.question}\n\nAnswer:"
     input_ids = tokenizer(input_text, return_tensors="pt").input_ids
     output = model.generate(input_ids, max_length=150, num_beams=4, early_stopping=True)
